@@ -20,8 +20,8 @@ REPO_NAME=${REPO#*$REPO_DIR/}
 TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 #replace place-holders
-find $TEMPLATE_REPO -type f -exec sed -i 's/\[REPO_NAME\]/$REPO_NAME/g' {} \;
-find $TEMPLATE_REPO -type f -exec sed -i 's/\[TAG\]/$TAG/g' {} \;
+find $TEMPLATE_REPO -type f -exec sed -i 's/\[REPO_NAME\]/${REPO_NAME}/g' {} \;
+find $TEMPLATE_REPO -type f -exec sed -i 's/\[TAG\]/${TAG}/g' {} \;
 
 #DOCKER
 cp -r $TEMPLATE_REPO/docker $REPO/docker
