@@ -9,4 +9,4 @@ services:
       context: ..
       dockerfile: docker/Dockerfile
       target: tested
-    image: [REPO_NAME]:[TAG]
+    image: [REPO_NAME]:[VERSION]
