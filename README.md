@@ -36,6 +36,8 @@ Clone this repo
 git clone https://github.com/Maik13579/repo_template.git
 ```
 
+If you are not me you should change the first variables in `repo_template/setup.bash`
+
 execute setup.bash
 ```
 ./repo_template/setup.bash
