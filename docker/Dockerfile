@@ -62,12 +62,6 @@ RUN apt update \
  python3-pip \
  && rm -rf /var/lib/apt/lists*
 COPY --from=build $ROS_WS $ROS_WS
-#use rosdep to install ros dependencies
-RUN apt update \
- && rosdep update \
- && rosdep install -y -r -q --from-paths src --ignore-src --rosdistro $ROS_DISTRO \
- && rm -rf /var/lib/apt/lists*
-
 
 #FINAL
 ########################################################################
