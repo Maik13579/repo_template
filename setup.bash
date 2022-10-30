@@ -15,15 +15,16 @@ REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd
 #get dir and name of the repo
 REPO_DIR=${REPO%/*}
 REPO_NAME=${REPO#*$REPO_DIR/}
-
+#replace "-" and " "with "_"
+ROS_REPO_NAME=$(echo $REPO_NAME | sed -e "s/-/_/g" -e "s/\ /_/g")
 
 TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 #replace place-holders
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[REPO_NAME\]/${REPO_NAME}/g"
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[TAG\]/${TAG}/g"
-find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_PACKAGE_NAME\]/${REPO_NAME}/g"
-find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_INTERFACES_NAME\]/${REPO_NAME}_interfaces/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_PACKAGE_NAME\]/${ROS_REPO_NAME}/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_INTERFACES_NAME\]/${ROS_REPO_NAME}_interfaces/g"
 
 #DOCKER
 cp -r $TEMPLATE_REPO/docker $REPO/docker
