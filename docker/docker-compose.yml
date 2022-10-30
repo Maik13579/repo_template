@@ -10,3 +10,4 @@ services:
       dockerfile: docker/Dockerfile
       target: tested
     image: [REPO_NAME]:[VERSION]
+    command: rosrun [ROS_PACKAGE_NAME] main.py
