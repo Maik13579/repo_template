@@ -30,7 +30,7 @@ find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_INTERFACES_NAME\]/${ROS_REPO
 cp -r $TEMPLATE_REPO/docker $REPO/docker
 
 #ROS REPO
-if [$GENERATE_ROS_PACKAGE == '1' ]
+if [ $GENERATE_ROS_PACKAGE -gt 0 ]
 then
 	cp -r $TEMPLATE_REPO/ros_package $REPO/$ROS_REPO_NAME
 	mkdir -p $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME
