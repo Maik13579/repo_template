@@ -16,7 +16,7 @@ REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd
 REPO_DIR=${REPO%/*}
 REPO_NAME=${REPO#*$REPO_DIR/}
 #replace "-" with "_"
-ROS_REPO_NAME=$(sed -i "s/-/_/g" "$REPO_NAME")
+ROS_REPO_NAME=$(sed -i "s/-/_/g" <<< $REPO_NAME)
 
 TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
