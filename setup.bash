@@ -40,5 +40,8 @@ cp -r $TEMPLATE_REPO/ros_package_interfaces $REPO/${ROS_REPO_NAME}_interfaces
 #TESTS
 cp -r $TEMPLATE_REPO/tests $REPO/tests
 
+#README
+cp $TEMPLATE_REPO/README.md $REPO/README.md
+
 #rm template repo
 rm -rf $TEMPLATE_REPO
