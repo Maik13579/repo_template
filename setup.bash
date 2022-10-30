@@ -23,6 +23,8 @@ TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd
 #replace place-holders
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[REPO_NAME\]/${REPO_NAME}/g"
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[VERSION\]/${VERSION}/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[AUTHOR\]/${AUTHOR}/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[AUTHOR_EMAIL\]/${AUTHOR_EMAIL}/g"
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_PACKAGE_NAME\]/${ROS_REPO_NAME}/g"
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_INTERFACES_NAME\]/${ROS_REPO_NAME}_interfaces/g"
 
