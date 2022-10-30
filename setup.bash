@@ -23,5 +23,8 @@ TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd
 find $TEMPLATE_REPO -type f -exec sed -i 's/[REPO_NAME]/$REPO_NAME/g' '{}' ';'
 find $TEMPLATE_REPO -type f -exec sed -i 's/[TAG]/$TAG/g' '{}' ';'
 
+#DOCKER
+cp -r $TEMPLATE_REPO/docker $REPO/docker
+
 #rm template repo
 rm -rf $TEMPLATE_REPO
