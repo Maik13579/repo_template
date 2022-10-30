@@ -1,11 +1,11 @@
 #This script will setup the repo
 
 #config
-export VERSION=0.0.0
-export AUTHOR='Maik Knof (@knofm)'
-export AUTHOR_EMAIL='maik.knof@rwu.de'
-export GENERATE_ROS_PACKAGE=1 #set this to 0 if you dont need a ros package
-export GENERATE_INTERFACES=1 #set this to 0 if you dont need custom ros interfaces
+VERSION=0.0.0
+AUTHOR='Maik Knof (@knofm)'
+AUTHOR_EMAIL='maik.knof@rwu.de'
+GENERATE_ROS_PACKAGE=1 #set this to 0 if you dont need a ros package
+GENERATE_INTERFACES=1 #set this to 0 if you dont need custom ros interfaces
 
 
 ################################################
@@ -16,7 +16,7 @@ REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd
 REPO_DIR=${REPO%/*}
 REPO_NAME=${REPO#*$REPO_DIR/}
 #replace "-" with "_"
-ROS_REPO_NAME=$(echo $REPO_NAME | sed -i "s/-/_/g")
+ROS_REPO_NAME=$(sed -i "s/-/_/g" "$REPO_NAME")
 
 TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
