@@ -35,7 +35,10 @@ mkdir -p $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME
 touch $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME/__init__.py
 
 #ROS REPO INTERFACES
-cp -r $TEMPLATE_REPO/ros_package_interfaces $REPO/$ROS_REPO_NAME_interfaces
+cp -r $TEMPLATE_REPO/ros_package_interfaces $REPO/${ROS_REPO_NAME}_interfaces
+
+#create test folder
+mkdir -p $REPO/tests/unit_tests
 
 #rm template repo
 rm -rf $TEMPLATE_REPO
