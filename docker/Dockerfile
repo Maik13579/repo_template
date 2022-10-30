@@ -24,8 +24,8 @@ RUN apt update \
  && rm -rf /var/lib/apt/lists*
 WORKDIR $ROS_WS/src
 # Get source code
-#COPY [ROS_PACKAGE_NAME] [ROS_PACKAGE_NAME]
-#COPY [ROS_INTERFACES_NAME] [ROS_INTERFACES_NAME]
+COPY [ROS_PACKAGE_NAME] [ROS_PACKAGE_NAME]
+COPY [ROS_INTERFACES_NAME] [ROS_INTERFACES_NAME]
 WORKDIR $ROS_WS
 RUN source /opt/ros/$ROS_DISTRO/setup.bash && catkin_make
 

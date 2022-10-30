@@ -4,8 +4,6 @@
 VERSION=0.0.0
 AUTHOR='Maik Knof (@knofm)'
 AUTHOR_EMAIL='maik.knof@rwu.de'
-GENERATE_ROS_PACKAGE=1 #set this to 0 if you dont need a ros package
-GENERATE_INTERFACES=1 #set this to 0 if you dont need custom ros interfaces
 
 
 ################################################
@@ -32,12 +30,12 @@ find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_INTERFACES_NAME\]/${ROS_REPO
 cp -r $TEMPLATE_REPO/docker $REPO/docker
 
 #ROS REPO
-if [ $GENERATE_ROS_PACKAGE -gt 0 ]
-then
-	cp -r $TEMPLATE_REPO/ros_package $REPO/$ROS_REPO_NAME
-	mkdir -p $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME
-	touch $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME/__init__.py
-fi
+cp -r $TEMPLATE_REPO/ros_package $REPO/$ROS_REPO_NAME
+mkdir -p $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME
+touch $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME/__init__.py
+
+#ROS REPO INTERFACES
+cp -r $TEMPLATE_REPO/ros_package_interfaces $REPO/$ROS_REPO_NAME_interfaces
 
 #rm template repo
 rm -rf $TEMPLATE_REPO
