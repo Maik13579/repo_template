@@ -22,6 +22,8 @@ TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd
 #replace place-holders
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[REPO_NAME\]/${REPO_NAME}/g"
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[TAG\]/${TAG}/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_PACKAGE_NAME\]/${REPO_NAME}/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_INTERFACES_NAME\]/${REPO_NAME}_interfaces/g"
 
 #DOCKER
 cp -r $TEMPLATE_REPO/docker $REPO/docker
