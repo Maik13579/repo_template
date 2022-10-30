@@ -10,17 +10,18 @@ export GENERATE_INTERFACES=1 #set this to 0 if you dont need custom ros interfac
 
 ################################################
 #Get path to the parent directory of this script
-TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd )
+REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd )
 
 #get dir and name of the repo
-REPO_DIR=${TEMPLATE_REPO%/*}
-REPO_NAME=${TEMPLATE_REPO#*$REPO_DIR/}
+REPO_DIR=${REPO%/*}
+REPO_NAME=${REPO#*$REPO_DIR/}
 
-#rm .git
-rm -f $TEMPLATE_REPO/.git
+
+TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 #replace place-holders
-sed -i 's/[REPO_NAME]/$REPO_NAME/' $(find $TEMPLATE_REPO)
-sed -i 's/[TAG]/$TAG/' $(find $TEMPLATE_REPO)
-sed -i 's/[AUTHOR]/$AUTHOR/' $(find $TEMPLATE_REPO)
-sed -i 's/[AUTHOR_EMAIL]/$AUTHOR_EMAIL/' $(find $TEMPLATE_REPO)
+find $TEMPLATE_REPO -type f -exec sed -i 's/[REPO_NAME]/$REPO_NAME/g' '{}' ';'
+find $TEMPLATE_REPO -type f -exec sed -i 's/[TAG]/$TAG/g' '{}' ';'
+
+#rm template repo
+rm -rf $TEMPLATE_REPO
