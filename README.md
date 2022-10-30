@@ -1,13 +1,16 @@
-# [REPO_NAME]
+# Repo template
+A template for my repos, creates a docker container with ros package
 
 ## Getting started
-```docker-compose -f docker-compose.yml up```
+Clone this repo
+```
+git clone https://github.com/Maik13579/repo_template.git
+```
 
-## Dependencies
- - [Docker](https://www.docker.com/)
+execute setup.bash
+```
+./repo_template/setup.bash
+```
 
 ## Authors
- - [AUTHOR]; [AUTHOR_EMAIL]
-
-## Problems and solutions
- - [Problems and solutions](https://fbe-gitlab.hs-weingarten.de/prj-iki-robotics/orga/robolab-wiki/wikis/Problems-And-Solutions)
+ - Maik Knof; Maik.Knof@rwu.de
