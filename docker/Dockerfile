@@ -41,7 +41,7 @@ ENV ROS_DISTRO $ROS_DISTRO
 ENV DEBIAN_FRONTEND noninteractive
 SHELL ["/bin/bash", "-c"]
 COPY docker/ros_entrypoint.sh /ros_entrypoint.sh
-ENTRYPOINT ["/ros1_entrypoint.sh"]
+ENTRYPOINT ["/ros_entrypoint.sh"]
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
 RUN echo "source $ROS_WS/devel/setup.bash" >> /root/.bashrc
 WORKDIR $ROS_WS
