@@ -47,5 +47,8 @@ cp -r $TEMPLATE_REPO/tests $REPO/tests
 #README
 cp $TEMPLATE_REPO/template_README.md $REPO/README.md
 
+#gitlab-ci
+cp $TEMPLATE_REPO/template_gitlab-ci.yml $REPO/.gitlab-ci.yml
+
 #rm template repo
 rm -rf $TEMPLATE_REPO
