@@ -2,8 +2,8 @@
 
 #config
 VERSION=0.0.0
-AUTHOR='Maik Knof (@knofm)'
-AUTHOR_EMAIL='maik.knof@rwu.de'
+AUTHOR='Maik Knof'
+AUTHOR_EMAIL='maik.knof@gmx.de'
 
 
 ################################################
@@ -14,9 +14,11 @@ REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd
 REPO_DIR=${REPO%/*}
 REPO_NAME=${REPO#*$REPO_DIR/}
 #replace "-" with "_"
-ROS_REPO_NAME=$(echo $REPO_NAME | tr - _)
+PYTHON_PACKAGE_NAME=$(echo $REPO_NAME | tr - _)
+ROS_PACKAGE_NAME='ros_'$PYTHON_PACKAGE_NAME
+
 #convert to camelcase test_repo -> TestRepo
-ROS_REPO_NAME_CAMELCASE=$(echo $ROS_REPO_NAME | sed -r 's/(^|_)([a-z])/\U\2/g')
+PACKAGE_NAME_CAMELCASE=$(echo $PYTHON_PACKAGE_NAME | sed -r 's/(^|_)([a-z])/\U\2/g')
 
 TEMPLATE_REPO=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -25,30 +27,25 @@ find $TEMPLATE_REPO -type f | xargs sed -i "s/\[REPO_NAME\]/${REPO_NAME}/g"
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[VERSION\]/${VERSION}/g"
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[AUTHOR\]/${AUTHOR}/g"
 find $TEMPLATE_REPO -type f | xargs sed -i "s/\[AUTHOR_EMAIL\]/${AUTHOR_EMAIL}/g"
-find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_PACKAGE_NAME\]/${ROS_REPO_NAME}/g"
-find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_INTERFACES_NAME\]/${ROS_REPO_NAME}_interfaces/g"
-find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_REPO_NAME_CAMELCASE\]/${ROS_REPO_NAME_CAMELCASE}/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[PYTHON_PACKAGE_NAME\]/${PYTHON_PACKAGE_NAME}/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_PACKAGE_NAME\]/${ROS_PACKAGE_NAME}/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[ROS_INTERFACES_NAME\]/${ROS_PACKAGE_NAME}_interfaces/g"
+find $TEMPLATE_REPO -type f | xargs sed -i "s/\[PACKAGE_NAME_CAMELCASE\]/${PACKAGE_NAME_CAMELCASE}/g"
 
 #DOCKER
 cp -r $TEMPLATE_REPO/docker $REPO/docker
 
-#ROS REPO
-cp -r $TEMPLATE_REPO/ros_package $REPO/$ROS_REPO_NAME
-mkdir -p $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME
-touch $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME/__init__.py
-cp $TEMPLATE_REPO/template_main.py $REPO/$ROS_REPO_NAME/src/$ROS_REPO_NAME/main.py
+#ROS1 REPO
+cp -r $TEMPLATE_REPO/ros/ros_package $REPO/ros/$ROS_PACKAGE_NAME
+mkdir -p $REPO/ros/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME
+touch $REPO/ros/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME/__init__.py
+cp $TEMPLATE_REPO/templates/ros1_main.py $REPO/ros/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME/main.py
 
 #ROS REPO INTERFACES
-cp -r $TEMPLATE_REPO/ros_package_interfaces $REPO/${ROS_REPO_NAME}_interfaces
-
-#TESTS
-cp -r $TEMPLATE_REPO/tests $REPO/tests
+cp -r $TEMPLATE_REPO/ros/ros_package_interfaces $REPO/ros/${ROS_REPO_NAME}_interfaces
 
 #README
-cp $TEMPLATE_REPO/template_README.md $REPO/README.md
-
-#gitlab-ci
-cp $TEMPLATE_REPO/template_gitlab-ci.yml $REPO/.gitlab-ci.yml
+cp $TEMPLATE_REPO/templates/README.md $REPO/README.md
 
 #rm template repo
 rm -rf $TEMPLATE_REPO
