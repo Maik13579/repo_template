@@ -17,6 +17,6 @@ services:
       - /dev/shm:/dev/shm
       - /tmp/.X11-unix:/tmp/.X11-unix
       - $HOME/.Xauthority:/root/.Xauthority
-      - ../../python:/root/ros2_ws/src/python
+      - ../../python:/root/python
       - ../../ros2:/root/ros2_ws/src/ros2
     command: tail -f /dev/null

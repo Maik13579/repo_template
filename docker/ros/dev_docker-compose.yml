@@ -19,6 +19,6 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - $HOME/.Xauthority:/root/.Xauthority
-      - ../../python:/root/catkin_ws/src/python
+      - ../../python:/root/python
       - ../../ros:/root/catkin_ws/src/ros
     command: tail -f /dev/null
