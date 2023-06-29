@@ -1,0 +1,15 @@
+version: '2.4'
+services:
+  ros:
+    container_name: [REPO_NAME]_ros_build
+    image: [REPO_NAME]:noetic
+    build:
+      context: ..
+      dockerfile: docker/ros/Dockerfile
+  ros2:
+    container_name: [REPO_NAME]_ros2_build
+    image: [REPO_NAME]:humble
+    build:
+      context: ..
+      dockerfile: docker/ros2/Dockerfile
+      
