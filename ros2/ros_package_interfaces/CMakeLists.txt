@@ -11,7 +11,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Example.msg"
-  "srv/Example.srv"
+  "srv/Example2.srv"
   DEPENDENCIES # Add packages that above messages depend on.
 )
 
