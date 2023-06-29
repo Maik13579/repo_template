@@ -49,6 +49,16 @@ cp $TEMPLATE_REPO/templates/ros1_main.py $REPO/ros/$ROS_PACKAGE_NAME/src/$ROS_PA
 #ROS REPO INTERFACES
 cp -r $TEMPLATE_REPO/ros/ros_package_interfaces $REPO/ros/${ROS_PACKAGE_NAME}_interfaces
 
+#ROS2 REPO
+mkdir $REPO/ros2
+cp -r $TEMPLATE_REPO/ros2/ros_package $REPO/ros2/$ROS_PACKAGE_NAME
+mkdir -p $REPO/ros2/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME
+touch $REPO/ros2/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME/__init__.py
+cp $TEMPLATE_REPO/templates/ros2_main.py $REPO/ros2/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME/${ROS_PACKAGE_NAME}_node.py
+
+#ROS2 REPO INTERFACES
+cp -r $TEMPLATE_REPO/ros2/ros_package_interfaces $REPO/ros2/${ROS_PACKAGE_NAME}_interfaces
+
 #README
 cp $TEMPLATE_REPO/templates/README.md $REPO/README.md
 
