@@ -6,23 +6,23 @@ The name of the project is the name of the directory, the setup.bash script will
 
 ## Getting started
 Create a empty directory 
-```
+```bash
 mkdir my-fancy-repo
 ```
 Go inside
-```
+```bash
 cd my-fancy-repo
 ```
 
 Clone this repo
-```
+```bash
 git clone https://github.com/Maik13579/repo_template.git
 ```
 
 If you are not me you should change the first variables in `repo_template/setup.bash`
 
-execute setup.bash
-```
+execute `setup.bash`
+```bash
 ./repo_template/setup.bash
 ```
 
