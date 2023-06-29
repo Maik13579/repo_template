@@ -2,7 +2,8 @@ import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 
-#from [ROS_INTERFACES_NAME].msg import Example
+from [ROS_INTERFACES_NAME].msg import Example
+from [PYTHON_PACKAGE_NAME] import example_function
 
 class [PACKAGE_NAME_CAMELCASE]():
     def __init__(self):
@@ -10,7 +11,7 @@ class [PACKAGE_NAME_CAMELCASE]():
         self.get_logger().info('Starting')
         
         #Params
-        self.declare_parameter('rate', 10)
+        self.declare_parameter('rate', 1)
         rate = self.get_parameter('rate').get_parameter_value().int_value
 
         #Publisher
@@ -32,7 +33,8 @@ class [PACKAGE_NAME_CAMELCASE]():
         '''
         main loop
         '''
-        self.get_logger().info('Looping')
+        self.get_logger().info(Example())
+        example_function()
 
 
 def main(args=None):

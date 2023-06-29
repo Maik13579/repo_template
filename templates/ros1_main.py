@@ -2,7 +2,8 @@
 
 import rospy
 
-#from [ROS_INTERFACES_NAME].msg import Example
+from [ROS_INTERFACES_NAME].msg import Example
+from [PYTHON_PACKAGE_NAME] import example_function
 
 class [PACKAGE_NAME_CAMELCASE]():
     def __init__(self):
@@ -16,7 +17,7 @@ class [PACKAGE_NAME_CAMELCASE]():
         #rospy.Subscriber(TOPIC, MSG, CALLBACK)
 
         #Execute main loop
-        rate = rospy.Rate(10)
+        rate = rospy.Rate(1)
         while not rospy.is_shutdown():
             self.loop()
             rate.sleep()
@@ -25,7 +26,8 @@ class [PACKAGE_NAME_CAMELCASE]():
         '''
         main loop
         '''
-        rospy.loginfo('Looping')
+        rospy.loginfo(Example())
+        example_function()
 
 
 
