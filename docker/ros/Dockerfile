@@ -1,6 +1,6 @@
 ARG ROS_DISTRO=noetic
 
-FROM base_image:$ROS_DISTRO
+FROM ros-base-image:$ROS_DISTRO
 WORKDIR /root/catkin_ws
 # Get source code
 COPY python src/python

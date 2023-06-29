@@ -1,6 +1,6 @@
 ARG ROS_DISTRO=humble
 
-FROM base_image:$ROS_DISTRO
+FROM ros-base-image:$ROS_DISTRO
 WORKDIR /root/ros2_ws
 # Get source code
 COPY python src/python
