@@ -1,7 +1,7 @@
 version: '2.4'
 services:
   [REPO_NAME]:
-    container_name: [REPO_NAME]
+    container_name: ros-[REPO_NAME]
     image: [REPO_NAME]:noetic
     runtime: nvidia
     environment:
