@@ -35,6 +35,10 @@ find $TEMPLATE_REPO -type f | xargs sed -i "s/\[PACKAGE_NAME_CAMELCASE\]/${PACKA
 #DOCKER
 cp -r $TEMPLATE_REPO/docker $REPO/docker
 
+#PYTHON
+cp -r $TEMPLATE_REPO/python $REPO/python
+mv $REPO/python/app/python_package $REPO/python/app/$PYTHON_PACKAGE_NAME
+
 #ROS1 REPO
 mkdir $REPO/ros
 cp -r $TEMPLATE_REPO/ros/ros_package $REPO/ros/$ROS_PACKAGE_NAME
@@ -43,7 +47,7 @@ touch $REPO/ros/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME/__init__.py
 cp $TEMPLATE_REPO/templates/ros1_main.py $REPO/ros/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME/main.py
 
 #ROS REPO INTERFACES
-cp -r $TEMPLATE_REPO/ros/ros_package_interfaces $REPO/ros/${ROS_REPO_NAME}_interfaces
+cp -r $TEMPLATE_REPO/ros/ros_package_interfaces $REPO/ros/${ROS_PACKAGE_NAME}_interfaces
 
 #README
 cp $TEMPLATE_REPO/templates/README.md $REPO/README.md
