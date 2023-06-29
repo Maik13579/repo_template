@@ -11,7 +11,7 @@ setup(
     packages=find_packages(where="app"),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="[AUTHOR]]",
+    author="[AUTHOR]",
     author_email="[AUTHOR_EMAIL]",
     license="MIT",
     classifiers=[
