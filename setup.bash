@@ -36,6 +36,7 @@ find $TEMPLATE_REPO -type f | xargs sed -i "s/\[PACKAGE_NAME_CAMELCASE\]/${PACKA
 cp -r $TEMPLATE_REPO/docker $REPO/docker
 
 #ROS1 REPO
+mkdir $REPO/ros
 cp -r $TEMPLATE_REPO/ros/ros_package $REPO/ros/$ROS_PACKAGE_NAME
 mkdir -p $REPO/ros/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME
 touch $REPO/ros/$ROS_PACKAGE_NAME/src/$ROS_PACKAGE_NAME/__init__.py
