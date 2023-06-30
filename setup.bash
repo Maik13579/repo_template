@@ -65,5 +65,8 @@ cp -r $TEMPLATE_REPO/ros2/ros_package_interfaces $REPO/ros2/${ROS_PACKAGE_NAME}_
 #README
 cp $TEMPLATE_REPO/templates/README.md $REPO/README.md
 
+#Gitignore
+cp $TEMPLATE_REPO/templates/gitignore $REPO/.gitignore
+
 #rm template repo
 rm -rf $TEMPLATE_REPO
