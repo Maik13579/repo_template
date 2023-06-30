@@ -26,5 +26,20 @@ execute `setup.bash`
 ./repo_template/setup.bash
 ```
 
+### Or put that in your ~/.bashrc
+```bash
+create_repo(){
+    if [[ -z ${1} ]];
+    then
+            echo "usage: create_repo [name]"
+    else
+        mkdir $1
+        cd $1
+        git clone https://github.com/Maik13579/repo_template.git
+        ./repo_template/setup.bash
+    fi
+}
+```
+
 ## Authors
  - Maik Knof; Maik.Knof@gmx.de
