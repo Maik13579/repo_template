@@ -17,4 +17,4 @@ services:
       - /dev/shm:/dev/shm
       - /tmp/.X11-unix:/tmp/.X11-unix
       - $HOME/.Xauthority:/root/.Xauthority
-    command: ros2 run [ROS_PACKAGE_NAME] main.py
+    command: ros2 run [ROS_PACKAGE_NAME] [ROS_PACKAGE_NAME]_node
